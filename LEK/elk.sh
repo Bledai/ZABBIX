@@ -11,11 +11,13 @@ yum install -y kibana
 
 echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
 echo "cluster.initial_master_nodes: node-1" >> /etc/elasticsearch/elasticsearch.yml
+echo 'node.name: node-1' >>  /etc/elasticsearch/elasticsearch.yml
 
-#echo 'server.host: 192.168.198.102' >> config/kibana.yml
 
+
+
+systemctl enable elasticsearch
+systemctl enable kibana
 systemctl start elasticsearch
 systemctl start kibana
-yum install elasticsearch -y
-yum install kibana -y
 
